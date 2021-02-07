@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
@@ -26,7 +25,6 @@ import com.ravi.boot.PatientApplication.enums.Gender;
 
 import io.swagger.annotations.ApiModel;
 
-@Table(name = "Patient")
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @ApiModel(value = "This is patient class")
