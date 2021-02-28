@@ -44,7 +44,7 @@ public class PatientMedicalHistory {
 	Double pulseRate;
 	
 	@Column
-	AffectedOrgan affectedOrgan;
+	String affectedOrgan;
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
@@ -53,7 +53,7 @@ public class PatientMedicalHistory {
 	public PatientMedicalHistory() {}
 	
 	public PatientMedicalHistory(Long id, @DecimalMin("0.0") Double height, @DecimalMin("0.0") Double weight,
-			@DecimalMin("0.0") Double bloodPressure, @DecimalMin("0.0") Double pulseRate, AffectedOrgan affectedOrgan,
+			@DecimalMin("0.0") Double bloodPressure, @DecimalMin("0.0") Double pulseRate, String affectedOrgan,
 			Patient patient) {
 		super();
 		this.id = id;
@@ -105,11 +105,11 @@ public class PatientMedicalHistory {
 		this.pulseRate = pulseRate;
 	}
 
-	public AffectedOrgan getAffectedOrgan() {
+	public String getAffectedOrgan() {
 		return affectedOrgan;
 	}
 
-	public void setAffectedOrgan(AffectedOrgan affectedOrgan) {
+	public void setAffectedOrgan(String affectedOrgan) {
 		this.affectedOrgan = affectedOrgan;
 	}
 

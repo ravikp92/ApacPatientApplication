@@ -1,5 +1,6 @@
 package com.ravi.boot.PatientApplication.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -51,7 +52,7 @@ public class Patient extends Auditable<String> {
 	private String phoneNumber;
 
 	@Column
-	private Gender gender;
+	private String gender;
 
 	@Column
 	@NotEmpty(message = "Address is required!! ")
@@ -68,7 +69,7 @@ public class Patient extends Auditable<String> {
 
 	@Past(message = "Date input is invalid for a birth date.")
 	@JsonFormat(pattern = "dd-MM-yyyy")
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 
 	@Column
 	@Size(min = 3, message = "Invalid SSN number !!")
@@ -84,10 +85,10 @@ public class Patient extends Auditable<String> {
 			@Size(max = 20, min = 5, message = "Invalid Patient Last Name !!") String patientlastName,
 			@Email(message = "Email should be valid!!") String email,
 			@Pattern(regexp = "^\\d{3}-\\d{3}-\\d{4}$/", message = "Invalid phone number!!") String phoneNumber,
-			Gender gender, @NotEmpty(message = "Address is required!! ") String address,
+			String gender, @NotEmpty(message = "Address is required!! ") String address,
 			@NotEmpty(message = "City is required!! ") @Size(min = 3, message = "Minimum 3 characters in length!!") String city,
 			@NotEmpty(message = "State is required!! ") @Size(min = 3, message = "Minimum 3 characters in length!!") String state,
-			@Past(message = "Date input is invalid for a birth date.") Date dateOfBirth,
+			@Past(message = "Date input is invalid for a birth date.") LocalDate dateOfBirth,
 			@Size(min = 3, message = "Invalid SSN number !!") String ssn, PatientMedicalHistory patientMedHistory) {
 		super();
 		this.id = id;
@@ -144,11 +145,11 @@ public class Patient extends Auditable<String> {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Gender getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -176,11 +177,11 @@ public class Patient extends Auditable<String> {
 		this.state = state;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
